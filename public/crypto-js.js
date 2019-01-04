@@ -5980,9 +5980,8 @@
 	        }
 	        data.sigBytes = i + 1;
 	    }
-	};
-
-
+  };
+  
 	return CryptoJS;
 
 }));

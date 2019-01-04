@@ -1,10 +1,11 @@
-{ 
+{
   "name": "xinrenxinshi",
   "version": "1.0.0",
   "description": "This example is so cool.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "webpack --progress"
   },
   "keywords": [
     "example",
@@ -13,8 +14,26 @@
   "author": "zhengjy8",
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-polyfill": "^6.26.0",
     "crypto-js": "^3.1.9-1",
     "express": "^4.15.3",
-    "http-proxy-middleware": "^0.17.4"
+    "http-proxy-middleware": "^0.17.4",
+    "webpack": "^4.28.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue-loader": "^13.0.5",
+    "webpack-cli": "^3.2.0"
   }
 }

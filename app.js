@@ -3,7 +3,7 @@ var app = express()
 var proxy = require('http-proxy-middleware');
 
 //静态资源
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/dist'))
 
 //xinrenxinshi 代理
 app.use('/api', proxy({

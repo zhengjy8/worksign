@@ -1,8 +1,7 @@
+var Cookies = import('../cookie')
+var CryptoJS = import('./crypto-js')
 webpackJsonp([2], [function(e, t, n) {
     e.exports = n(527)
-}
-, function(e, t) {
-    e.exports = React
 }
 , function(e, t) {
     "use strict";
@@ -439,15 +438,7 @@ webpackJsonp([2], [function(e, t, n) {
     n(434),
     n(886)
 }
-, function(e, t, n) {
-    "use strict";
-    var o = n(1)
-      , r = n(859);
-    if ("undefined" == typeof o)
-        throw Error("create-react-class could not find the React object. If you are using script tags, make sure that React is being loaded before create-react-class.");
-    var a = (new o.Component).updater;
-    e.exports = r(o.Component, o.isValidElement, a)
-}
+
 , function(e, t, n) {
     "use strict";
     function o(e) {
@@ -1250,9 +1241,7 @@ webpackJsonp([2], [function(e, t, n) {
         }
     }()
 }
-, , , , , , function(e, t) {
-    e.exports = ReactDOM
-}
+
 , , function(e, t, n) {
     (function(t) {
         for (var o = n(919), r = "undefined" == typeof window ? t : window, a = ["moz", "webkit"], i = "AnimationFrame", s = r["request" + i], l = r["cancel" + i] || r["cancelRequest" + i], c = 0; !s && c < a.length; c++)
@@ -1397,9 +1386,7 @@ webpackJsonp([2], [function(e, t, n) {
         return n
     }
 }
-, , , , , , , function(e, t) {
-    e.exports = ReactRouter
-}
+
 , function(e, t, n) {
     "use strict";
     function o(e) {
