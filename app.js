@@ -32,4 +32,4 @@ app.use('/bapi', proxy({
 }));
 
 
-app.listen(8007)
+app.listen(process.env.PORT || 8007)
