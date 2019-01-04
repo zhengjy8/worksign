@@ -1,4 +1,17 @@
-{
+{ 
+  "name": "xinrenxinshi",
+  "version": "1.0.0",
+  "description": "This example is so cool.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "zhengjy8",
+  "license": "MIT"
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "express": "^4.15.3",
