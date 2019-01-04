@@ -30,6 +30,4 @@
   }))   
   window.__oneApmKey__ = "[1d4IUc>3(
 
-   如有问题，可以联系作者 xiangwenhu@hotmail.com, 微信dirge-cloud
-
-
+原作者 xiangwenhu@hotmail.com, 微信dirge-cloud
