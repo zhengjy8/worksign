@@ -1,6 +1,6 @@
-var CryptoJS = import('./crypto-js')
-
-
+const CryptoJS = require('./crypto-js')
+// const CryptoJS = window.CryptoJS
+import { fetch } from 'whatwg-fetch'
 //发送 sms code
 async function sendSMSCode(phone) {
   var fd = new FormData();
@@ -8,10 +8,10 @@ async function sendSMSCode(phone) {
 
   return fetch('/api/site/ajax-send-sms-code/login', {
     method: 'POST',
-    headers: {
-      'Origin': 'https://e.xinrenxinshi.com',
-      'Referer': 'https://e.xinrenxinshi.com/index'
-    },
+    // headers: {
+    //   'Origin': 'https://e.xinrenxinshi.com',
+    //   'Referer': 'https://e.xinrenxinshi.com/index'
+    // },
     credentials: 'include',
     body: fd
   }).then(res => res.json())
@@ -37,10 +37,10 @@ async function login(mobile, verify_code, verify_code_id, type = 1) {
 
   return fetch('/api/site/ajax-login', {
     method: 'POST',
-    headers: {
-      'Origin': 'https://e.xinrenxinshi.com',
-      'Referer': 'https://e.xinrenxinshi.com/index'
-    },
+    // headers: {
+    //   'Origin': 'https://e.xinrenxinshi.com',
+    //   'Referer': 'https://e.xinrenxinshi.com/index'
+    // },
     credentials: 'include',
     body: fd
   }).then(res => res.json())
@@ -59,10 +59,10 @@ resultDemo = {
 // csrf Token
 async function csrfToken() {
   return fetch('/api/env/ajax-common', {
-    headers: {
-      'Origin': 'https://e.xinrenxinshi.com',
-      'Referer': 'https://e.xinrenxinshi.com/index'
-    },
+    // headers: {
+    //   'Origin': 'https://e.xinrenxinshi.com',
+    //   'Referer': 'https://e.xinrenxinshi.com/index'
+    // },
     credentials: 'include',
   }).then(res => res.json())
 }
@@ -111,15 +111,18 @@ async function sign(longitude, latitude, crsfToken) {
       s: "N)&*,[!]("
     },
     p3 = CryptoJS;
-  var signature = window.tdefault(p1, p2, p3)
+  // var signature = window.tdefault(p1, p2, p3)
 
-  console.log(signature, "color:yellow");
+  var l = "timestamp=" + timestamp + "&accuracy=" + "1999" + "&latitude=" + latitude + "&longitude=" + longitude;
+  var signature = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(l, "[!]+K.&`d"));
+
+  console.log('%c'+ signature, "color:yellow");
 
   return fetch('/api/attendance/ajax-sign', {
     method: 'POST',
     headers: {
-      'Origin': 'https://e.xinrenxinshi.com',
-      'Referer': 'https://e.xinrenxinshi.com/index',
+      // 'Origin': 'https://e.xinrenxinshi.com',
+      // 'Referer': 'https://e.xinrenxinshi.com/index',
       'X-CSRF-TOKEN': crsfToken,
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -164,4 +167,23 @@ function getCookieVal(offset) {
   var endstr = document.cookie.indexOf(";", offset);
   if (endstr == -1) endstr = document.cookie.length;
   return unescape(document.cookie.substring(offset, endstr));
+}
+
+
+// var obj = {
+//   sendSMSCode: sendSMSCode,
+//   login: login,
+//   csrfToken: csrfToken,
+//   sign: sign,
+//   getCookie: getCookie
+// }
+
+// Object.assign(window,obj)
+
+module.exports = {
+  sendSMSCode,
+  login,
+  csrfToken,
+  sign,
+  getCookie
 }

@@ -1,5 +1,5 @@
-var CryptoJS = import('../crypto-js')
-var Cookies = import('../cookie')
+// var CryptoJS = import('../crypto-js')
+// var Cookies = import('../cookie')
 
 ! function (t) {
     function n(r) {

@@ -1,20 +1,49 @@
+const Cookies = require('./cookie')
+const CryptoJS = require('./crypto-js')
+const {
+    sendSMSCode,
+    login,
+    csrfToken,
+    sign,
+    getCookie
+} = require('./api') 
 
-var CryptoJS = import('./crypto-js')
-var Cookies = import('./cookie')
+import getTrans from './pointTran'
+// var sendSMSCode = window.sendSMSCode
+// var login = window.login
+// var csrfToken = window.csrfToken
+// var sign = window.sign
+// var getCookie = window.getCookie
+// var Cookies = window.Cookies
+// var CryptoJS = window.CryptoJS
+
+let message = document.getElementById('message')
+let btnLogout = document.getElementById('btnLogout')
+let rec_status = document.getElementById('rec_status')
+let rec_phone = document.getElementById('rec_phone')
+let rec_loc = document.getElementById('rec_loc')
+let rec_geoLoc = document.getElementById('rec_geoLoc')
+let loginZone = document.getElementById('loginZone')
+let phone = document.getElementById('phone')
+let btnSendSMS = document.getElementById('btnSendSMS')
+let code = document.getElementById('code')
+let btnLogin = document.getElementById('btnLogin')
+let btnSign = document.getElementById('btnSign')
+
 // 初始化全局变量
 localStorage.setItem('xrxsZhiChiParams', JSON.stringify({
-  "partnerId": "a8633497bd2411e68d9500163e2ecffb"
+    "partnerId": "a8633497bd2411e68d9500163e2ecffb"
 }))
 window.__oneApmKey__ = "[1d4IUc>3("
 window.__tingyunLoaction__ = JSON.parse(localStorage.xrxsZhiChiParams || "{}").partnerId || "Yf&*#";
 CryptoJS.a = CryptoJS.enc.Base64
 CryptoJS.c = function (message, key) {
-  return new CryptoJS.algo.HMAC.init(CryptoJS.algo.SHA1, key).finalize(message);
+    return new CryptoJS.algo.HMAC.init(CryptoJS.algo.SHA1, key).finalize(message);
 }
 
 
 
-let code_id /* sms code_id*/ , crsfToken /* crsf Token */
+let code_id /* sms code_id*/, crsfToken /* crsf Token */
 
 //发送验证
 btnSendSMS.addEventListener('click', async () => {
@@ -162,7 +191,11 @@ function displayMessage(result) {
             window.location.reload();
         }, 100)
     }
+    message.style.opacity = "1"
     message.innerText = result.message + (result.data && result.data.msg ? '|' + result.data.msg : '')
+    setTimeout(() => {
+        message.style.opacity = "0.5"
+    }, 3000);
 }
 
 //清除不必要的信息

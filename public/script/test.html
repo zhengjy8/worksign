@@ -33,14 +33,14 @@
         window.__tingyunLoaction__ = JSON.parse(localStorage.xrxsZhiChiParams || "{}").partnerId || "Yf&*#";
 
         var p1 = [{
-                longitude: 114.10950459342588
-            }, {
-                latitude: 22.39643928918118
-            }, {
-                accuracy: 1999
-            }, {
-                timestamp: 1520304771842
-            }],
+            longitude: 114.10950459342588
+        }, {
+            latitude: 22.39643928918118
+        }, {
+            accuracy: 1999
+        }, {
+            timestamp: 1520304771842
+        }],
             p2 = {
                 a: "c0$=[Z#4s)",
                 overtimeCompensationRuleArray: ["无补偿", "调休假", "加班费"],
@@ -55,6 +55,13 @@
         p3 = CryptoJS
 
         console.log(window.tdefault(p1, p2, p3))
+        debugger
+
+        var l = "longitude=" + 114.10950459342588 + "&latitude=" + 22.39643928918118 + "&accuracy=" + 1999;
+
+        var test = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(l, "xrxs&qjyd"));
+
+        console.log(test)
     </script>
 </body>
 

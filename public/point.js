@@ -1,6 +1,13 @@
+import { fetch } from 'whatwg-fetch'
+
+let defaultCity = document.getElementById('defaultCity')
+let address = document.getElementById('address')
+let btnSearch = document.getElementById('btnSearch')
+let list = document.getElementById('list')
+
 let city = '全国'
 
-const AK_KEY = 'KPx7nDiVnDGqlWjCnZ6cd6rAsimIpzV3',
+const AK_KEY = '9I4LVb4ltQLGsx1GrsljWcCf', //'KPx7nDiVnDGqlWjCnZ6cd6rAsimIpzV3'0,
     //API_DOMAIN = 'http://api.map.baidu.com'
     API_DOMAIN = '/bapi'
 
@@ -49,8 +56,9 @@ function locate2() {
 }
 
 //初始化
-function init() {
-    //let result = await locate2()
+ function init() {
+    // let result = await locate()
+    // result.content.address_detail.city
     city = '成都市'
     defaultCity.innerText = city
     btnSearch.removeAttribute('disabled')

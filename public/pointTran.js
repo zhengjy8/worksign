@@ -69,3 +69,5 @@ function getTrans() {
         };
     return o
 }
+
+export default getTrans

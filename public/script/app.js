@@ -1,5 +1,4 @@
-var Cookies = import('../cookie')
-var CryptoJS = import('./crypto-js')
+
 webpackJsonp([2], [function(e, t, n) {
     e.exports = n(527)
 }

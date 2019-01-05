@@ -55,8 +55,8 @@
         module.exports = lang;
     }
     // Browser
-    if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
-        this.moment.lang('zh-cn', lang);
+    if (typeof window !== 'undefined' && window.moment && window.moment.lang) {
+        window.moment.lang('zh-cn', lang);
     }
 }());
 

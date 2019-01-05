@@ -2,17 +2,19 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  mode: 'production',
+  mode: process.env.NODE_ENV,
   context: path.resolve(__dirname, "public"),
   entry: {
     // index: "index.js",
     // point: 'point.js',
-    vendor: [ './api.js', './pointTran.js',
+    // vendor: [  
       // './script/react.min.15.4.2.js', './script/react-dom.min.15.4.2.js',
       // './script/react-router.min.2.8.1.js', './script/redux.min.3.6.0.js',
-      './script/moment.min.2.18.1.js', './script/moment-with-zh-cn.2.18.1.js',
-      './script/crypto-js.js','./cookie.js',
-       './script/vendor.js', './script/app.js'],
+      // './script/moment.min.2.18.1.js', './script/moment-with-zh-cn.2.18.1.js','./api.js',
+      // './crypto-js.js','./cookie.js',
+      // './pointTran.js',
+      //  './script/vendor.js', './script/app.js'
+      // ],
     index: './index.js',
     point: './point.js'
   },
@@ -98,27 +100,27 @@ module.exports = {
   },
   performance: {
     hints: false
-  }
-  // devtool: '#eval-source-map'
+  },
+  devtool: '#source-map'
 }
 
 // if (process.env.NODE_ENV === 'production') {
 //   module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  // module.exports.plugins = (module.exports.plugins || []).concat([
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       NODE_ENV: '"production"'
-  //     }
-  //   }),
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     sourceMap: true,
-  //     compress: {
-  //       warnings: false
-  //     }
-  //   }),
-  //   new webpack.LoaderOptionsPlugin({
-  //     minimize: true
-  //   })
-  // ])
+//   //http://vue-loader.vuejs.org/en/workflow/production.html
+//   module.exports.plugins = (module.exports.plugins || []).concat([
+//     // new webpack.DefinePlugin({
+//     //   'process.env': {
+//     //     NODE_ENV: '"production"'
+//     //   }
+//     // }),
+//     new webpack.optimize.UglifyJsPlugin({
+//       sourceMap: true,
+//       compress: {
+//         warnings: true
+//       }
+//     }),
+//     // new webpack.LoaderOptionsPlugin({
+//     //   minimize: true
+//     // })
+//   ])
 // }
