@@ -71,13 +71,13 @@ btnSearch.addEventListener('click', async () => {
 })
 
 //执行搜索
-async function executeSearch() {
-    var ev = window.event || arguments.callee.caller.arguments[0];
-    if (ev.keyCode == 13) {
-        let results = await search(address.value, city)
-        render(results.result)
-    }
-}
+// async function executeSearch() {
+//     var ev = window.event || arguments.callee.caller.arguments[0];
+//     if (ev.keyCode == 13) {
+//         let results = await search(address.value, city)
+//         render(results.result)
+//     }
+// }
 
 //渲染
 function render(results) {
