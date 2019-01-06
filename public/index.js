@@ -55,7 +55,7 @@ btnSendSMS.addEventListener('click', async () => {
     }
 })
 
-//模拟登陆
+//登陆
 btnLogin.addEventListener('click', async () => {
     try {
         let result = await login(phone.value, code.value, code_id)
@@ -63,7 +63,7 @@ btnLogin.addEventListener('click', async () => {
             loginZone.style.display = 'none' //隐藏登陆区域
             btnSign.removeAttribute('disabled') //允许打卡
 
-            //更新cookie过期时间，设置7天过期
+            //更新cookie过期时间，设置30天过期
             let QJYDSID = Cookies.get('QJYDSID')
             Cookies.remove('QJYDSID')
             Cookies.set('QJYDSID', QJYDSID, {
@@ -206,8 +206,8 @@ function clearInfo() {
 init()
 
 function saveHistory() {
-    let dataStr = localStorage.getItem('history'),
-        data = dataStr ? JSON.parse(dataStr) : []
+    let dataStr = localStorage.getItem('history')
+    let data = dataStr ? JSON.parse(dataStr) : []
 
     if (!Array.isArray(data)) {
         data = []
@@ -216,7 +216,7 @@ function saveHistory() {
     let d = new Date(),
         date = d.toLocaleDateString(),
         time = d.toLocaleTimeString()
-    dList = data.find(v => v.date === date)
+    let dList = data.find(v => v.date === date)
     if (dList) {
         dList.records.unshift(time)
     } else {
