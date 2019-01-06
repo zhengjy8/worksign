@@ -1,6 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
-
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: process.env.NODE_ENV,
   context: path.resolve(__dirname, "public"),
@@ -16,11 +16,12 @@ module.exports = {
       //  './script/vendor.js', './script/app.js'
       // ],
     index: './index.js',
-    point: './point.js'
+    point: './point.js',
+    history: './history.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: "[name].bundle.js"
   },
   module: {
@@ -104,23 +105,24 @@ module.exports = {
   devtool: '#source-map'
 }
 
-// if (process.env.NODE_ENV === 'production') {
-//   module.exports.devtool = '#source-map'
-//   //http://vue-loader.vuejs.org/en/workflow/production.html
-//   module.exports.plugins = (module.exports.plugins || []).concat([
-//     // new webpack.DefinePlugin({
-//     //   'process.env': {
-//     //     NODE_ENV: '"production"'
-//     //   }
-//     // }),
-//     new webpack.optimize.UglifyJsPlugin({
-//       sourceMap: true,
-//       compress: {
-//         warnings: true
-//       }
-//     }),
-//     // new webpack.LoaderOptionsPlugin({
-//     //   minimize: true
-//     // })
-//   ])
-// }
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  //http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename:  './index.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      template: './point.html',
+      filename:  './point.html',
+      chunks: ['point']
+    }),
+    new HtmlWebpackPlugin({
+      template: './history.html',
+      filename:  './history.html',
+      chunks: ['history']
+    })
+  ])
+}

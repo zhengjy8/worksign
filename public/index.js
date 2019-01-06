@@ -55,7 +55,7 @@ btnSendSMS.addEventListener('click', async () => {
     }
 })
 
-//模拟登陆
+//登陆
 btnLogin.addEventListener('click', async () => {
     try {
         let result = await login(phone.value, code.value, code_id)
@@ -63,7 +63,7 @@ btnLogin.addEventListener('click', async () => {
             loginZone.style.display = 'none' //隐藏登陆区域
             btnSign.removeAttribute('disabled') //允许打卡
 
-            //更新cookie过期时间，设置7天过期
+            //更新cookie过期时间，设置30天过期
             let QJYDSID = Cookies.get('QJYDSID')
             Cookies.remove('QJYDSID')
             Cookies.set('QJYDSID', QJYDSID, {
