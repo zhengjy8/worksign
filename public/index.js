@@ -206,8 +206,8 @@ function clearInfo() {
 init()
 
 function saveHistory() {
-    let dataStr = localStorage.getItem('history'),
-        data = dataStr ? JSON.parse(dataStr) : []
+    let dataStr = localStorage.getItem('history')
+    let data = dataStr ? JSON.parse(dataStr) : []
 
     if (!Array.isArray(data)) {
         data = []
@@ -216,7 +216,7 @@ function saveHistory() {
     let d = new Date(),
         date = d.toLocaleDateString(),
         time = d.toLocaleTimeString()
-    dList = data.find(v => v.date === date)
+    let dList = data.find(v => v.date === date)
     if (dList) {
         dList.records.unshift(time)
     } else {
