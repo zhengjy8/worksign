@@ -19,7 +19,7 @@ async function locate() {
 //搜索
 async function search(keyWords, city) {
     //return fetch(`${API_DOMAIN}/place/v2/search?q=${encodeURIComponent(keyWords)}&region=${encodeURIComponent(city)}&output=json&ak=${AK_KEY}`).then(res=>res.json())
-    return fetch(`${API_DOMAIN}/place/v2/suggestion?q=${encodeURIComponent(keyWords)}&region=${encodeURIComponent(city)}&city_limit=true&output=json&ak=${AK_KEY}`).then(res => res.json())
+    return fetch(`${API_DOMAIN}/place/v2/suggestion?query=${encodeURIComponent(keyWords)}&region=${encodeURIComponent(city)}&city_limit=true&output=json&ak=${AK_KEY}`).then(res => res.json())
 
 }
 
