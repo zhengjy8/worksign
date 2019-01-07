@@ -27,7 +27,6 @@ app.use('/bapi', proxy({
     '^/bapi': ''
   },
   headers: {
-    Host: 'api.map.baidu.com',
     Referer: 'https://api.map.baidu.com'
   }
 }));
