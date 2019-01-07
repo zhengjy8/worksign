@@ -20,14 +20,14 @@ app.use('/api', proxy({
 
 //baidu api 代理
 app.use('/bapi', proxy({
-    target: 'http://api.map.baidu.com',
+    target: 'https://api.map.baidu.com',
     changeOrigin: true,
     secure: false,
     pathRewrite: {
         '^/bapi': ''
     },
     headers: {
-        Referer: 'http://api.map.baidu.com'
+        Referer: 'https://api.map.baidu.com'
     }
 }));
 
