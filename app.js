@@ -7,28 +7,29 @@ app.use(express.static(__dirname + '/dist'))
 
 //xinrenxinshi 代理
 app.use('/api', proxy({
-    target: 'https://e.xinrenxinshi.com',
-    changeOrigin: true,
-    secure: false,
-    pathRewrite: {
-        '^/api': ''
-    },
-    headers: {
-        Referer: 'https://e.xinrenxinshi.com/index'
-    }
+  target: 'https://e.xinrenxinshi.com',
+  changeOrigin: true,
+  secure: false,
+  pathRewrite: {
+    '^/api': ''
+  },
+  headers: {
+    Referer: 'https://e.xinrenxinshi.com/index'
+  }
 }));
 
 //baidu api 代理
 app.use('/bapi', proxy({
-    target: 'https://api.map.baidu.com',
-    changeOrigin: true,
-    secure: false,
-    pathRewrite: {
-        '^/bapi': ''
-    },
-    headers: {
-        Referer: 'https://api.map.baidu.com'
-    }
+  target: 'https://api.map.baidu.com',
+  changeOrigin: true,
+  secure: false,
+  pathRewrite: {
+    '^/bapi': ''
+  },
+  headers: {
+    Host: 'api.map.baidu.com',
+    Referer: 'https://api.map.baidu.com'
+  }
 }));
 
 
