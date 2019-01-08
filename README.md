@@ -10,10 +10,10 @@
 
 **运行和操作：**
 1. npm install
-2. npm start
-3. 浏览器打开 http://localhost:8007
+2. npm run build
+3. npm start
+4. 浏览器打开 http://localhost:8007
 
-**也可以运行打包命令 npm run build，在根目录下生成dist文件夹**
 
 ---
 

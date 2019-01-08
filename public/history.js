@@ -1,4 +1,5 @@
 (function () {
+    let list = document.getElementById('list')
     let dataStr = localStorage.getItem('history'),
         data = dataStr ? JSON.parse(dataStr) : null
 
